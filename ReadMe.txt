@@ -13,6 +13,5 @@ A to move left
 Shooting:
 Up Arrow to shoot upwards
 Left arrow to shoot left
-Right arrow to shoot Rights
+Right arrow to shoot Right
 
-----------------------------------------------------------
