@@ -93,12 +93,12 @@ public:
 	const int enemyWidth = 64;
 	const int enemyHeight = 64;
 
-	bool IsAlive = true;
+	bool isAlive = true;
 
 	float enemyX = screenHeight * 0.5f;
 	float enemyY = 940;
-	float EnemySpeedX;
-	float EnemySpeedY;
+	float enemySpeedX;
+	float enemySpeedY;
 	float radius = 32;
 
 	
@@ -111,12 +111,12 @@ public:
 	const int enemy2Width = 64;
 	const int enemy2Height = 64;
 
-	bool Is2Alive = true;
+	bool is2Alive = true;
 
 	float enemy2X = screenHeight * 0.5f + 200;
 	float enemy2Y = 940;
 	float Enemy2SpeedX;
-	float Enemy2SpeedY;
+	float enemy2SpeedY;
 	float radius2 = 32;
 };
 class Enemy3
@@ -126,12 +126,12 @@ public:
 	const int enemy3Width = 64;
 	const int enemy3Height = 64;
 
-	bool Is3Alive = true;
+	bool is2Alive = true;
 
 	float enemy3X = screenHeight * 0.5f + 400;
 	float enemy3Y = 1000;
-	float Enemy3SpeedX;
-	float Enemy3SpeedY;
+	float enemy3SpeedX;
+	float enemy3SpeedY;
 	float radius3 = 32;
 };
 
@@ -184,17 +184,17 @@ void updateGameState(float a_fDeltaTime)
 	MoveSprite(enemyS, enemy.enemyX, enemy.enemyY);
 	MoveSprite(enemy2S, enemy2.enemy2X, enemy2.enemy2Y);
 	MoveSprite(enemy3S, enemy3.enemy3X, enemy3.enemy3Y);
-	if (enemy.IsAlive == true)
+	if (enemy.isAlive == true)
 	{
 		DrawSprite(enemyS);
 	}
 	//+++++++++++++++++++++++++
-	if (enemy2.Is2Alive == true)
+	if (enemy2.is2Alive == true)
 	{
 		DrawSprite(enemy2S);
 	}
 	//++++++++++++++++++++++++++
-	if (enemy3.Is3Alive == true)
+	if (enemy3.is2Alive == true)
 	{
 		DrawSprite(enemy3S);
 	}
@@ -202,21 +202,21 @@ void updateGameState(float a_fDeltaTime)
 
 	//Respawn
 //--------------------------------------------------------------------
-	if (enemy.IsAlive == false)
+	if (enemy.isAlive == false)
 	{
-		enemy.IsAlive = true;
+		enemy.isAlive = true;
 		enemy.enemyX = screenHeight * 0.5f;
 		enemy.enemyY = 940;
 	}
-	if (enemy2.Is2Alive == false)
+	if (enemy2.is2Alive == false)
 	{
-		enemy2.Is2Alive = true;
+		enemy2.is2Alive = true;
 		enemy2.enemy2X = screenHeight * 0.5f + 200;
 		enemy2.enemy2Y = 950;
 	}
-	if (enemy3.Is3Alive == false)
+	if (enemy3.is2Alive == false)
 	{
-		enemy3.Is3Alive = true;
+		enemy3.is2Alive = true;
 		enemy3.enemy3X = screenHeight * 0.5f + 400;
 		enemy3.enemy3Y = 1000;
 	}
@@ -295,7 +295,7 @@ void updateGameState(float a_fDeltaTime)
 		if (boltDistance < VectorBolts[i].boltRadius + enemy.radius)
 		{
 			pScore += 10;
-			enemy.IsAlive = false;
+			enemy.isAlive = false;
 			VectorBolts[i].isActive = false;
 
 		}
@@ -303,7 +303,7 @@ void updateGameState(float a_fDeltaTime)
 		if (boltDistance2 < VectorBolts[i].boltRadius + enemy2.radius2)
 		{
 			pScore += 10;
-			enemy2.Is2Alive = false;
+			enemy2.is2Alive = false;
 			VectorBolts[i].isActive = false;
 
 		}
@@ -311,7 +311,7 @@ void updateGameState(float a_fDeltaTime)
 		if (boltDistance3 < VectorBolts[i].boltRadius + enemy3.radius3)
 		{
 			pScore += 10;
-			enemy3.Is3Alive = false;
+			enemy3.is2Alive = false;
 			VectorBolts[i].isActive = false;
 
 		}
@@ -342,7 +342,7 @@ void updateGameState(float a_fDeltaTime)
 	//if (boltDistance < bolt.boltRadius + enemy.radius)
 	//{
 	//	pScore += 10;
-	//	enemy.IsAlive = false;
+	//	enemy.isAlive = false;
 	//	bolt.isActive = false;
 
 	//}
@@ -350,7 +350,7 @@ void updateGameState(float a_fDeltaTime)
 	//if (boltDistance2 < bolt.boltRadius + enemy2.radius2)
 	//{
 	//	pScore += 10;
-	//	enemy2.Is2Alive = false;
+	//	enemy2.is2Alive = false;
 	//	bolt.isActive = false;
 
 	//}
@@ -358,7 +358,7 @@ void updateGameState(float a_fDeltaTime)
 	//if (boltDistance3 < bolt.boltRadius + enemy3.radius3)
 	//{
 	//	pScore += 10;
-	//	enemy3.Is3Alive = false;
+	//	enemy3.is2Alive = false;
 	//	bolt.isActive = false;
 
 	//}
@@ -410,54 +410,54 @@ void updateGameState(float a_fDeltaTime)
 	enemy3.enemy3Y -= 1.f;
 	/*if (enemy.enemyY < 600)
 	{
-		enemy.enemyX += enemy.EnemySpeedX;
+		enemy.enemyX += enemy.enemySpeedX;
 	}*/
 	//bolt.boltY = 1.f;
 	if (enemy.enemyY < 32)
 	{
 		lives -= 1;
 		pScore -= 10;
-		enemy.IsAlive = false;	
+		enemy.isAlive = false;	
 	}
 	if (enemy2.enemy2Y < 32)
 	{
 		lives -= 1;
 		pScore -= 10;
-		enemy2.Is2Alive = false;
+		enemy2.is2Alive = false;
 	}
 	if (enemy3.enemy3Y < 32)
 	{
 		lives -= 1;
 		pScore -= 10;
-		enemy3.Is3Alive = false;
+		enemy3.is2Alive = false;
 	}
 	
-	enemy.enemyY += enemy.EnemySpeedY;
-	enemy.enemyX += enemy.EnemySpeedX;
-	enemy2.enemy2Y += enemy2.Enemy2SpeedY;
+	enemy.enemyY += enemy.enemySpeedY;
+	enemy.enemyX += enemy.enemySpeedX;
+	enemy2.enemy2Y += enemy2.enemy2SpeedY;
 	enemy2.enemy2X += enemy2.Enemy2SpeedX;
-	enemy3.enemy3Y += enemy3.Enemy3SpeedY;
-	enemy3.enemy3X += enemy3.Enemy3SpeedX;
+	enemy3.enemy3Y += enemy3.enemy3SpeedY;
+	enemy3.enemy3X += enemy3.enemy3SpeedX;
 
 	float Distance = sqrt(pow(enemy.enemyX - player.PlayerX, 2) + pow(enemy.enemyY - player.PlayerY, 2));
 	if (Distance < enemy.radius + player.radius)
 	{
 		lives -= 1;
-		enemy.IsAlive = false;
+		enemy.isAlive = false;
 	
 	}
 	float Distance2 = sqrt(pow(enemy2.enemy2X - player.PlayerX, 2) + pow(enemy2.enemy2Y - player.PlayerY, 2));
 	if (Distance2 < enemy2.radius2 + player.radius)
 	{
 		lives -= 1;
-		enemy2.Is2Alive = false;
+		enemy2.is2Alive = false;
 
 	}
 	float Distance3 = sqrt(pow(enemy3.enemy3X - player.PlayerX, 2) + pow(enemy3.enemy3Y - player.PlayerY, 2));
 	if (Distance3 < enemy3.radius3 + player.radius)
 	{
 		lives -= 1;
-		enemy3.Is3Alive = false;
+		enemy3.is2Alive = false;
 
 	}
 
